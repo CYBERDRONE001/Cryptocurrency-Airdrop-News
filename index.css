@@ -1,0 +1,151 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #000;
+    color: #00ff99;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+.intro {
+    text-align: center;
+    position: relative;
+}
+
+.title h1 {
+    font-size: 2.5em;
+    text-transform: uppercase;
+    animation: flicker 2s infinite alternate;
+}
+
+.glitch {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url('glitch.gif') repeat;
+    mix-blend-mode: multiply;
+    animation: glitchAnimation 0.3s infinite;
+    opacity: 0.6;
+}
+
+@keyframes flicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        opacity: 1;
+    }
+    20%, 24%, 55% {
+        opacity: 0.4;
+    }
+}
+
+@keyframes glitchAnimation {
+    0% {
+        transform: translate(0, 0);
+    }
+    20% {
+        transform: translate(-5px, -5px);
+    }
+    40% {
+        transform: translate(5px, -5px);
+    }
+    60% {
+        transform: translate(-5px, 5px);
+    }
+    80% {
+        transform: translate(5px, 5px);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+#startButton {
+    background-color: #0f0;
+    border: 2px solid #0f0;
+    color: #000;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin-top: 20px;
+    animation: flickerButton 2s infinite alternate;
+}
+
+@keyframes flickerButton {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        opacity: 1;
+    }
+    20%, 24%, 55% {
+        opacity: 0.4;
+    }
+}
+
+#contentContainer {
+    text-align: center;
+    color: #00ff99;
+}
+
+#donateButton {
+    background-color: #0f0;
+    border: 2px solid #0f0;
+    color: #000;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.highlight {
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+.content {
+    font-size: 1em; /* Normal content text size */
+    margin-bottom: 20px; /* Adjust spacing between sections */
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #000;
+}
+
+@media (max-width: 768px) {
+    /* Responsive adjustments for smaller screens */
+    .title h1 {
+        font-size: 2.5em; /* Adjust heading size for smaller screens */
+    }
+
+    .content {
+        font-size: 0.9em; /* Decrease text size for smaller screens */
+    }
+}
+
+.highlight.hide {
+    opacity: 0;
+}
+
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    border-top-color: #333;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
